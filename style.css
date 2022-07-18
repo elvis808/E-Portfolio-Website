@@ -29,6 +29,11 @@ p {
 a {
     text-decoration: none;
     position: relative;
+    transform: opacity 300ms ease;
+}
+
+i:hover {
+    opacity: 0.7;
 }
 
 .link__hover-effect:after {
@@ -126,8 +131,8 @@ nav {
 }
 
 .nav__link--anchor-primary:hover {
-    background-color: #353839;
-    transition: all 200ms ease-in;
+    background-color: #4682B4;
+    transition: all 300ms ease;
 }
 
 .personal__logo {
@@ -167,11 +172,13 @@ About Me
     margin-top: 24px;
     margin-bottom: 16px;
     font-size: 48px;
+    animation: fade-up 650ms 400ms backwards;
 }
 
 .about-me__info--para {
     font-size: 20px;
     margin-bottom: 28px;
+    animation: fade-up 650ms 600ms backwards;
 }
 
 .about-me__link {
@@ -181,10 +188,18 @@ About Me
     padding: 0 16px;
 }
 
-.about-me__link:hover {
-    filter: blur(50%);
-    opacity: 0.5;
-    transition: all 300ms ease;
+.about-me__links {
+    animation: fade-up 650ms 800ms backwards;
+}
+
+@keyframes fade-up {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .about-me__img--container {
@@ -196,9 +211,18 @@ About Me
 
 .about-me__img {
     width: 100%;
-    margin-top: 48px;
+    margin-top: 32px;
+    animation: fade-in 1200ms 800ms backwards;
 }
 
+@keyframes fade-in{
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 /* 
 
 technology stack
@@ -362,7 +386,7 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 8% 0;
+    padding: 2% 0;
 }
 
 .footer__logo--img {
@@ -378,7 +402,7 @@ footer {
 }
 
 .footer__copyright {
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .footer__logo--popper {
@@ -428,7 +452,35 @@ footer {
 }
 
 @media (max-width: 480px) {
-    
+    .nav__link:not(:last-child) {
+        display:none;
+    }
+
+    .project__description {
+        padding: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .project__description--para {
+        display: none;
+    }
+
+    .project__description--links {
+        display: flex;
+        justify-content: center;
+    }
+
+    .project__description--title {
+        font-size: 32px;
+        line-height: 1;
+        text-align: center;
+    }
+
+    .project__description--sub-title {
+        text-align: center;
+        margin: 12px 0; 
+    }
 }
 
 
